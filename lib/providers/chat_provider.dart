@@ -11,7 +11,6 @@ import 'package:chatbotapp/hive/settings.dart';
 import 'package:chatbotapp/hive/user_model.dart';
 import 'package:chatbotapp/models/message.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:path_provider/path_provider.dart' as path;
 import 'package:image_picker/image_picker.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:uuid/uuid.dart';
@@ -439,8 +438,6 @@ class ChatProvider extends ChangeNotifier {
 
   // init Hive box
   static initHive() async {
-    final dir = await path.getApplicationDocumentsDirectory();
-    Hive.init(dir.path);
     await Hive.initFlutter(Constants.geminiDB);
 
     // register adapters
